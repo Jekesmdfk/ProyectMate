@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://new_tileset.dos.tres" type="TileSet" id=1]
+[ext_resource path="res://final/assets/Grassland/godot2.jpg" type="Texture" id=2]
+[ext_resource path="res://final/actors/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://final/actors/enemy/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://final/assets/BarraSalud/BarraSalud.tscn" type="PackedScene" id=5]
+[ext_resource path="res://final/sonido/destiny.wav" type="AudioStream" id=6]
+[ext_resource path="res://portal3.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 519.108, 283 )
+scale = Vector2( 5.21549, 5.25882 )
+texture = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 4
+collision_mask = 11
+format = 1
+tile_data = PoolIntArray( -1310643, 6, 0, 1310782, 6, 0, 1310783, 6, 0, 1310784, 6, 0, 1310785, 6, 0, 1310786, 6, 0, 1310787, 6, 0, 1310788, 6, 0, 1310789, 6, 0, 1310790, 6, 0, 1310791, 6, 0, 1376318, 6, 0, 1376319, 6, 0, 1376320, 6, 0, 1376321, 6, 0, 1376322, 6, 0, 1376323, 6, 0, 1376324, 6, 0, 1376325, 6, 0, 1376326, 6, 0, 1376327, 6, 0, 1441839, 6, 0, 1441840, 6, 0, 1441841, 6, 0, 1441842, 6, 0, 1441843, 6, 0, 1441844, 6, 0, 1441845, 6, 0, 1441846, 6, 0, 1441847, 6, 0, 1441848, 6, 0, 1441849, 6, 0, 1441850, 6, 0, 1441851, 6, 0, 1507375, 6, 0, 1507376, 6, 0, 1507377, 6, 0, 1507378, 6, 0, 1507379, 6, 0, 1507380, 6, 0, 1507381, 6, 0, 1507382, 6, 0, 1507383, 6, 0, 1507384, 6, 0, 1507385, 6, 0, 1507386, 6, 0, 1507387, 6, 0, 1572889, 6, 0, 1572890, 6, 0, 1572891, 6, 0, 1572892, 6, 0, 1572893, 6, 0, 1572894, 6, 0, 1572895, 6, 0, 1572896, 6, 0, 1572897, 6, 0, 1572898, 6, 0, 1572899, 6, 0, 1572900, 6, 0, 1572901, 6, 0, 1572902, 6, 0, 1572903, 6, 0, 1572904, 6, 0, 1572905, 6, 0, 1638401, 6, 0, 1638402, 6, 0, 1638403, 6, 0, 1638404, 6, 0, 1638405, 6, 0, 1638406, 6, 0, 1638407, 6, 0, 1638408, 6, 0, 1638409, 6, 0, 1638410, 6, 0, 1638411, 6, 0, 1638412, 6, 0, 1638413, 6, 0, 1638414, 6, 0, 1638415, 6, 0, 1638416, 6, 0, 1638417, 6, 0, 1638418, 6, 0, 1638425, 6, 0, 1638426, 6, 0, 1638427, 6, 0, 1638428, 6, 0, 1638429, 6, 0, 1638430, 6, 0, 1638431, 6, 0, 1638432, 6, 0, 1638433, 6, 0, 1638434, 6, 0, 1638435, 6, 0, 1638436, 6, 0, 1638437, 6, 0, 1638438, 6, 0, 1638439, 6, 0, 1638440, 6, 0, 1638441, 6, 0, 1703937, 6, 0, 1703938, 6, 0, 1703939, 6, 0, 1703940, 6, 0, 1703941, 6, 0, 1703942, 6, 0, 1703943, 6, 0, 1703944, 6, 0, 1703945, 6, 0, 1703946, 6, 0, 1703947, 6, 0, 1703948, 6, 0, 1703949, 6, 0, 1703950, 6, 0, 1703951, 6, 0, 1703952, 6, 0, 1703953, 6, 0, 1703954, 6, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 44, 44 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 489, 347 )
+damage = 35
+
+[node name="Enemy2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 43, 367 )
+damage = 35
+
+[node name="Enemy3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 803, 321 )
+damage = 35
+
+[node name="BarraSalud" parent="." instance=ExtResource( 5 )]
+player_node = NodePath("../Player")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="Area2D" parent="." instance=ExtResource( 7 )]
+escena = "Scena4"
